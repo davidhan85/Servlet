@@ -3,14 +3,37 @@
 <head>
 <meta charset="UTF-8" />
 <title>Upload files</title>
+<script src="./js/jquery-3.6.3.js"></script>
 </head>
 <body>
 	<form method="post" action="../UploadFiles" 
 	enctype="multipart/form-data">
-		File 1: <input type="file" name="file1" /><br>
-		File 2: <input type="file" name="file2" /><br>
-		File 3: <input type="file" name="file3" /><br>
-		<input type="submit" value="上傳" />
+	<input type="button" value="新增" id="but"><br>
+	<div id="div2">
+	<div id="div1">
+	File 1: <input type="file" name="file1" /><br>
+	File 2: <input type="file" name="file2" /><br>
+	File 3: <input type="file" name="file3" /><br>
+	</div>
+		<input type="submit" value="上傳" id="submit"/>
+	</div>
 	</form>
+	<script>
+	$(`#but`).click(function(){
+		let index=$(`#div1 input[type=flie]`).length+1
+		for(let i=0;i<1;i++){
+		let newInput = $(`<input>`).attr({
+			type:`file`,
+			name:`file`+index
+		})
+		let div1=$(`#div1`)
+		let br=$(`<br>`)
+		div1.append(newInput)
+		div1.append(br)
+		index++
+	}
+
+	})
+	</script>
 </body>
 </html>
